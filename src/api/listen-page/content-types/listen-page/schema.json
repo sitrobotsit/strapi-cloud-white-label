@@ -12,16 +12,9 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
+    "spotifyPlaylistURL": {
       "type": "string",
-      "required": true
-    },
-    "tagline": {
-      "type": "string"
-    },
-    "spotifyPlaylistId": {
-      "type": "string",
-      "required": true
+      "regex": "^https://open\\.spotify\\.com/(intl-[a-z]{2}(-[A-Z]{2})?/)?playlist/[A-Za-z0-9]+([?#].*)?$"
     },
     "coverImage": {
       "type": "media",

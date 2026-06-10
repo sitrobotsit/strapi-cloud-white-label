@@ -634,7 +634,7 @@ export interface ApiListenPageListenPage extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     site: Schema.Attribute.Relation<'manyToOne', 'api::site.site'>;
-    spotifyPlaylistId: Schema.Attribute.String & Schema.Attribute.Required;
+    spotifyPlaylistURL: Schema.Attribute.String;
     streamingLinks: Schema.Attribute.Component<'shared.streaming-link', true> &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
@@ -643,8 +643,6 @@ export interface ApiListenPageListenPage extends Struct.CollectionTypeSchema {
         },
         number
       >;
-    tagline: Schema.Attribute.String;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
