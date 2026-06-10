@@ -692,6 +692,39 @@ export interface ApiSiteSite extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiStreamingServiceStreamingService
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'streaming_services';
+  info: {
+    description: 'The set list of streaming platforms editors can link to (managed by admins)';
+    displayName: 'Streaming Service';
+    pluralName: 'streaming-services';
+    singularName: 'streaming-service';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::streaming-service.streaming-service'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1210,6 +1243,7 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::listen-page.listen-page': ApiListenPageListenPage;
       'api::site.site': ApiSiteSite;
+      'api::streaming-service.streaming-service': ApiStreamingServiceStreamingService;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

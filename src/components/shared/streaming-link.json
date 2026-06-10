@@ -3,16 +3,14 @@
   "info": {
     "displayName": "Streaming Link",
     "icon": "music",
-    "description": "A link to a streaming platform (e.g. Spotify, Apple Music)"
+    "description": "A link to one of the predefined streaming services"
   },
   "options": {},
   "attributes": {
-    "slug": {
-      "type": "string",
-      "required": true
-    },
-    "label": {
-      "type": "string",
+    "service": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::streaming-service.streaming-service",
       "required": true
     },
     "url": {

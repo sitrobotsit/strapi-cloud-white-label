@@ -65,13 +65,16 @@ export interface SharedSlider extends Struct.ComponentSchema {
 export interface SharedStreamingLink extends Struct.ComponentSchema {
   collectionName: 'components_shared_streaming_links';
   info: {
-    description: 'A link to a streaming platform (e.g. Spotify, Apple Music)';
+    description: 'A link to one of the predefined streaming services';
     displayName: 'Streaming Link';
     icon: 'music';
   };
   attributes: {
-    label: Schema.Attribute.String & Schema.Attribute.Required;
-    slug: Schema.Attribute.String & Schema.Attribute.Required;
+    service: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::streaming-service.streaming-service'
+    > &
+      Schema.Attribute.Required;
     url: Schema.Attribute.Text & Schema.Attribute.Required;
   };
 }
