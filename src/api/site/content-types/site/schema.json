@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sites",
+  "info": {
+    "singularName": "site",
+    "pluralName": "sites",
+    "displayName": "Site",
+    "description": "A site served by this CMS (e.g. jetvesper.com)"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "domain": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article.article",
+      "mappedBy": "site"
+    },
+    "authors": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::author.author",
+      "mappedBy": "site"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category",
+      "mappedBy": "site"
+    },
+    "globals": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::global.global",
+      "mappedBy": "site"
+    },
+    "abouts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::about.about",
+      "mappedBy": "site"
+    }
+  }
+}

@@ -1,5 +1,7 @@
 'use strict';
-const bootstrap = require("./bootstrap");
+
+const seedExampleApp = require('./bootstrap');
+const { registerSiteConditions, registerSiteScopeMiddleware } = require('./multi-site');
 
 module.exports = {
   /**
@@ -8,7 +10,9 @@ module.exports = {
    *
    * This gives you an opportunity to extend code.
    */
-  register(/*{ strapi }*/) {},
+  register({ strapi }) {
+    registerSiteScopeMiddleware(strapi);
+  },
 
   /**
    * An asynchronous bootstrap function that runs before
@@ -17,5 +21,8 @@ module.exports = {
    * This gives you an opportunity to set up your data model,
    * run jobs, or perform some special logic.
    */
-  bootstrap,
+  async bootstrap({ strapi }) {
+    await seedExampleApp();
+    await registerSiteConditions(strapi);
+  },
 };
