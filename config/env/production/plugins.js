@@ -1,3 +1,7 @@
+// Strapi Cloud only exposes custom environment variables after the build
+// step, so the email provider must be configured in this env-specific file
+// rather than in the base config/plugins.js.
+// See: https://docs.strapi.io/cloud/advanced/email
 module.exports = ({ env }) => ({
   email: {
     config: {
