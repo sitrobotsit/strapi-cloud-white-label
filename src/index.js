@@ -2,7 +2,6 @@
 
 const seedExampleApp = require('./bootstrap');
 const { registerSiteConditions, registerSiteScopeMiddleware } = require('./multi-site');
-const { seedStreamingServices } = require('./streaming-services');
 
 module.exports = {
   /**
@@ -24,7 +23,6 @@ module.exports = {
    */
   async bootstrap({ strapi }) {
     await seedExampleApp();
-    await seedStreamingServices(strapi);
     await registerSiteConditions(strapi);
   },
 };

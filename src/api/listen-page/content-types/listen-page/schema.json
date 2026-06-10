@@ -22,12 +22,49 @@
       "required": false,
       "allowedTypes": ["images"]
     },
-    "streamingLinks": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.streaming-link",
-      "required": true,
-      "min": 1
+    "bandcamp": {
+      "type": "string",
+      "regex": "^https?://\\S+$"
+    },
+    "spotify": {
+      "type": "string",
+      "regex": "^https?://\\S+$"
+    },
+    "tidal": {
+      "type": "string",
+      "regex": "^https?://\\S+$"
+    },
+    "appleMusic": {
+      "type": "string",
+      "regex": "^https?://\\S+$"
+    },
+    "itunesStore": {
+      "type": "string",
+      "regex": "^https?://\\S+$"
+    },
+    "deezer": {
+      "type": "string",
+      "regex": "^https?://\\S+$"
+    },
+    "amazonMusic": {
+      "type": "string",
+      "regex": "^https?://\\S+$"
+    },
+    "youtubeMusic": {
+      "type": "string",
+      "regex": "^https?://\\S+$"
+    },
+    "qobuz": {
+      "type": "string",
+      "regex": "^https?://\\S+$"
+    },
+    "pandora": {
+      "type": "string",
+      "regex": "^https?://\\S+$"
+    },
+    "soundcloud": {
+      "type": "string",
+      "regex": "^https?://\\S+$"
     },
     "site": {
       "type": "relation",

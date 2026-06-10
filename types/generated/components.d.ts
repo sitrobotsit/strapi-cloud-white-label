@@ -62,23 +62,6 @@ export interface SharedSlider extends Struct.ComponentSchema {
   };
 }
 
-export interface SharedStreamingLink extends Struct.ComponentSchema {
-  collectionName: 'components_shared_streaming_links';
-  info: {
-    description: 'A link to one of the predefined streaming services';
-    displayName: 'Streaming Link';
-    icon: 'music';
-  };
-  attributes: {
-    service: Schema.Attribute.Relation<
-      'oneToOne',
-      'api::streaming-service.streaming-service'
-    > &
-      Schema.Attribute.Required;
-    url: Schema.Attribute.Text & Schema.Attribute.Required;
-  };
-}
-
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -87,7 +70,6 @@ declare module '@strapi/strapi' {
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
-      'shared.streaming-link': SharedStreamingLink;
     }
   }
 }

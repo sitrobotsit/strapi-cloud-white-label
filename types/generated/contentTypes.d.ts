@@ -622,30 +622,33 @@ export interface ApiListenPageListenPage extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    amazonMusic: Schema.Attribute.String;
+    appleMusic: Schema.Attribute.String;
+    bandcamp: Schema.Attribute.String;
     coverImage: Schema.Attribute.Media<'images'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    deezer: Schema.Attribute.String;
+    itunesStore: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::listen-page.listen-page'
     > &
       Schema.Attribute.Private;
+    pandora: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    qobuz: Schema.Attribute.String;
     site: Schema.Attribute.Relation<'manyToOne', 'api::site.site'>;
+    soundcloud: Schema.Attribute.String;
+    spotify: Schema.Attribute.String;
     spotifyPlaylistURL: Schema.Attribute.String;
-    streamingLinks: Schema.Attribute.Component<'shared.streaming-link', true> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMax<
-        {
-          min: 1;
-        },
-        number
-      >;
+    tidal: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    youtubeMusic: Schema.Attribute.String;
   };
 }
 
@@ -684,39 +687,6 @@ export interface ApiSiteSite extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiStreamingServiceStreamingService
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'streaming_services';
-  info: {
-    description: 'The set list of streaming platforms editors can link to (managed by admins)';
-    displayName: 'Streaming Service';
-    pluralName: 'streaming-services';
-    singularName: 'streaming-service';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::streaming-service.streaming-service'
-    > &
-      Schema.Attribute.Private;
-    name: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique;
-    publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1241,7 +1211,6 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::listen-page.listen-page': ApiListenPageListenPage;
       'api::site.site': ApiSiteSite;
-      'api::streaming-service.streaming-service': ApiStreamingServiceStreamingService;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
