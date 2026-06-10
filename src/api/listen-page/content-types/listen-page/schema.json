@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "listen_pages",
+  "info": {
+    "singularName": "listen-page",
+    "pluralName": "listen-pages",
+    "displayName": "Listen Page",
+    "description": "Streaming platform links and player content for a site's /listen page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "tagline": {
+      "type": "string"
+    },
+    "spotifyPlaylistId": {
+      "type": "string",
+      "required": true
+    },
+    "coverImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "streamingLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.streaming-link",
+      "required": true,
+      "min": 1
+    },
+    "site": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::site.site",
+      "inversedBy": "listenPages"
+    }
+  }
+}

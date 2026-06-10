@@ -50,6 +50,12 @@
       "relation": "oneToMany",
       "target": "api::about.about",
       "mappedBy": "site"
+    },
+    "listenPages": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::listen-page.listen-page",
+      "mappedBy": "site"
     }
   }
 }

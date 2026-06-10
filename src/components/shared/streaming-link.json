@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_shared_streaming_links",
+  "info": {
+    "displayName": "Streaming Link",
+    "icon": "music",
+    "description": "A link to a streaming platform (e.g. Spotify, Apple Music)"
+  },
+  "options": {},
+  "attributes": {
+    "slug": {
+      "type": "string",
+      "required": true
+    },
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "text",
+      "required": true
+    }
+  }
+}
