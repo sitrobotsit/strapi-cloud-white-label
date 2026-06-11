@@ -12,6 +12,7 @@ const SCOPED_UIDS = [
   'api::global.global',
   'api::about.about',
   'api::listen-page.listen-page',
+  'api::listen-latest-page.listen-latest-page',
 ];
 
 const CONDITION_PREFIX = 'belongs-to-site-';
