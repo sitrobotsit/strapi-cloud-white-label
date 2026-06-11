@@ -16,6 +16,10 @@
       "type": "string",
       "required": true
     },
+    "heroVideoUrl": {
+      "type": "string",
+      "regex": "^https?://\\S+$"
+    },
     "spotifyPlaylistURL": {
       "type": "string",
       "regex": "^https://open\\.spotify\\.com/(intl-[a-z]{2}(-[A-Z]{2})?/)?playlist/[A-Za-z0-9]+([?#].*)?$"
