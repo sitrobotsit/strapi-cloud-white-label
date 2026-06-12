@@ -26,6 +26,12 @@
       "type": "text",
       "required": true
     },
+    "profileImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
     "defaultSeo": {
       "type": "component",
       "repeatable": false,

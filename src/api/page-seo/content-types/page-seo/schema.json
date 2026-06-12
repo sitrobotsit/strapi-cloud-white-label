@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "page_seos",
+  "info": {
+    "singularName": "page-seo",
+    "pluralName": "page-seos",
+    "displayName": "Page SEO",
+    "description": "Share title and description for site pages (social / messaging previews)"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "path": {
+      "type": "string",
+      "required": true
+    },
+    "shareTitle": {
+      "type": "string",
+      "required": true
+    },
+    "shareDescription": {
+      "type": "text",
+      "required": true
+    },
+    "site": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::site.site",
+      "inversedBy": "pageSeos"
+    }
+  }
+}

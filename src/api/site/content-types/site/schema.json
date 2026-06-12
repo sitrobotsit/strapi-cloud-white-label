@@ -62,6 +62,12 @@
       "relation": "oneToMany",
       "target": "api::listen-latest-page.listen-latest-page",
       "mappedBy": "site"
+    },
+    "pageSeos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::page-seo.page-seo",
+      "mappedBy": "site"
     }
   }
 }

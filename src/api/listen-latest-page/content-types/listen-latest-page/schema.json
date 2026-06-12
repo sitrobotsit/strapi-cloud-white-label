@@ -20,6 +20,12 @@
       "type": "string",
       "regex": "^https?://\\S+$"
     },
+    "shareTitle": {
+      "type": "string"
+    },
+    "shareDescription": {
+      "type": "text"
+    },
     "spotifyPlaylistURL": {
       "type": "string",
       "regex": "^https://open\\.spotify\\.com/(intl-[a-z]{2}(-[A-Z]{2})?/)?playlist/[A-Za-z0-9]+([?#].*)?$"
